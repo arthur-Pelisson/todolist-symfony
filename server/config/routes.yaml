@@ -1,0 +1,45 @@
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+
+home:
+    path: /
+    controller: App\Controller\HomePage::getHomePage
+
+app_register:
+    path: /register
+    controller: App\Controller\RegistrationController::register
+
+app_login:
+    path: /login
+    controller: App\Controller\SecurityController::login
+
+app_logout:
+    path: /logout
+    controller: App\Controller\SecurityController::logout
+
+todolist_new_task:
+    path: /todolist/new/task
+    controller: App\Controller\TodoListController::createTask
+
+todolist_edit_task:
+    path: /todolist/edit/task/{id}
+    controller: App\Controller\TodoListController::editTask
+
+todolist_show_task:
+    path: /todolist/show/task/{id}
+    controller: App\Controller\TodoListController::showTask
+    
+todolist_delete_task:
+    path: /todolist/delete/task/{id}
+    controller: App\Controller\TodoListController::deleteTask
+    methods: [POST]
+
+todolist_confirm_delete_task:
+    path: /todolist/delete/confirm/{id}
+    controller: App\Controller\TodoListController::confirmDeleteTask
+    methods: [GET]
+
+

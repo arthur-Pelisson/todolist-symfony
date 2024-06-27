@@ -1,0 +1,30 @@
+{% extends "base.html.twig" %}
+{% block title %}
+	Welcome!
+{% endblock %}
+{% block body %}
+	{% if app.user %}
+		<div class="mb-3">
+			You are logged in as
+			{{ app.user.userIdentifier }},
+			<a href="{{ path('app_logout') }}">Logout</a>
+		</div>
+		<h1 class="text-center">
+			Welcome {{ app.user.fullname }}
+		</h1>
+		<div>
+			{{
+                render(controller(
+                    'App\\Controller\\TodoListController::index', {user: app.user}
+                ))
+            }}
+		</div>
+
+	{% endif %}
+	{# <div style="margin-top:200px">
+			{{ render(controller(
+	            'App\\Controller\\LuckyController::randomNumber', {max: 50}
+	        )) }}
+	
+		</div> #}
+</body>{% endblock %}
